@@ -1,0 +1,1 @@
+[![ci](https://github.com/JP-sDEV/prj666-rpi/actions/workflows/ci.yml/badge.svg)](https://github.com/JP-sDEV/prj666-rpi/actions/workflows/ci.yml)
