@@ -1,8 +1,8 @@
 import sys
 from machine import SPI, Pin
 import uos
-sys.path.append("..")  # Add the parent directory to the import path
-from util.sdcard import SDCard
+# sys.path.append("..")  # Add the parent directory to the import path
+from sdcard import SDCard
 
 
 class SDCardManager:
@@ -14,7 +14,7 @@ class SDCardManager:
 
         try:
             uos.mount(self.sd, '/')
-            print("SD card mounted successfully.")
+            # print("SD card mounted successfully.")
         except Exception as e:
             print("Failed to mount SD card:", e)
             raise
@@ -41,7 +41,7 @@ class SDCardManager:
         try:
             with open(file_path, 'w') as file:
                 file.write(content)
-            print(f"Text written to {file_path} successfully.")
+            # print(f"Text written to {file_path} successfully.")
         except Exception as e:
             print("Failed to write to file:", e)
             return False
@@ -52,7 +52,7 @@ class SDCardManager:
         try:
             with open(file_path, 'ab') as file:  # Append mode
                 file.write(data)
-            print(f"Data written to {file_path} successfully.")
+            # print(f"Data written to {file_path} successfully.")
         except Exception as e:
             print("Failed to write data to file:", e)
 
@@ -77,22 +77,22 @@ class SDCardManager:
         """Unmount the SD card."""
         try:
             uos.umount('/')
-            print("SD card unmounted successfully.")
+            # print("SD card unmounted successfully.")
         except Exception as e:
             print("Failed to unmount SD card:", e)
             raise
 
 
-# Example usage
-if __name__ == "__main__":
-    sd_manager = SDCardManager()
+# # Example usage
+# if __name__ == "__main__":
+#     sd_manager = SDCardManager()
 
-    print("Contents of SD card:", sd_manager.list_contents())
+#     print("Contents of SD card:", sd_manager.list_contents())
 
-    file_path = '/hello_world.txt'
-    sd_manager.write_file(file_path, 'Hello, World!')
+#     file_path = '/hello_world.txt'
+#     sd_manager.write_file(file_path, 'Hello, World!')
 
-    contents = sd_manager.read_file(file_path)
-    print("File Contents:", contents)
+#     contents = sd_manager.read_file(file_path)
+#     print("File Contents:", contents)
 
-    sd_manager.unmount()
+#     sd_manager.unmount()

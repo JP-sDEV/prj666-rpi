@@ -12,6 +12,7 @@ class DHTSensor:
 
     def read_sensor(self):
         """Read temperature and humidity from the sensor."""
+        time.sleep(1)
         retries = 5
         for _ in range(retries):
             try:
@@ -50,7 +51,8 @@ if __name__ == "__main__":
 
     try:
         while True:
-            sensor.display_data()
+            # sensor.display_data()
+            print(sensor.get_binary_data())
             time.sleep(1)  # Delay for next reading
     except KeyboardInterrupt:
         print("\n*** DHT11 Sensor Stopped ***")
